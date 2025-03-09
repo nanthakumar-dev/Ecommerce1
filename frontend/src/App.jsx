@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify'
 import Productdetail from './components/productDetail'
 import SearchProduct from './components/layouts/searchProduct';
 import Login from './components/user/Login'
-import Register from './components/user/Register'
+
 import Profile from './components/user/Profile'
 import Forgot from './components/user/forgotPassword'
 import Reset from './components/user/resetPassword'
@@ -66,7 +66,7 @@ function App() {
             <Route path='/product/:id' element={<Productdetail />} />
             <Route path='/search/:keyword' element={<SearchProduct />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/Register' element={<Register />} />
+            
             <Route element={<ProtectedRoute />} >
               <Route path='/myprofile' element={<Profile />} />
               <Route path='/myprofile/update' element={<UpdateUser />} />
