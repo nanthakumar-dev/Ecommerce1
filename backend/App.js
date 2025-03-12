@@ -19,7 +19,7 @@ app.use('/upload',express.static(path.join(__dirname,'upload')))
 app.use('/',(req,res)=>{
 res.send("Good")
     })
-app.use('/bad',(req,res)=>{
+app.get('/bad',(req,res)=>{
 res.send("Bad")
     })
 
