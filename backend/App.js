@@ -16,8 +16,12 @@ app.use(cors())
 
 app.use(cookieParser())
 app.use('/upload',express.static(path.join(__dirname,'upload')))
+app.use('/',(req,res)=>{
+res.send("Good")
+    })
+
+
 app.use('/api/v1',Products)
-app.use('/api/v1',auth)
 app.use('/api/v1',order)
 app.use('/api/v1',payment)
 
