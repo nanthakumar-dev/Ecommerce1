@@ -14,7 +14,7 @@ export const productActions=id=>async(dispatch)=>{
     try{
         console.log("PRoductsssssssss")
     dispatch(productRequest())
-    let response=await fetch(`https://ecommerce123-yixk.onrender.com/api/v1/product/${id}`)
+    let response=await fetch(`/api/v1/product/${id}`)
     response=await response.json()
     
     dispatch(productSuccess(response))
@@ -28,7 +28,7 @@ export const productActions=id=>async(dispatch)=>{
 export const productsActions=(currentPage,keyword,category)=>async(dispatch)=>{
     try{
         dispatch(productsRequest())
-    let link=`https://ecommerce123-yixk.onrender.comhttps://ecommerce123-yixk.onrender.com/api/v1/product?page=${currentPage}`
+    let link=`https://ecommerce123-yixk.onrender.com/api/v1/product?page=${currentPage}`
     if(keyword){
         link+=`&keyword=${keyword}`
     }
@@ -53,7 +53,7 @@ export const createReview=form=>async(dispatch)=>{
                 "Content-type":"application/json"
             }
         }
-        let products=await axios.post('https://ecommerce123-yixk.onrender.com/api/v1/product/review',form,condition)
+        let products=await axios.post('/api/v1/product/review',form,condition)
         products=products.data
         dispatch(reviewSuccess())
     }
@@ -66,7 +66,7 @@ export const adminProducts=async(dispatch)=>{
         
         dispatch(adminProductsRequest())
         
-        let products=await axios.get('https://ecommerce123-yixk.onrender.com/api/v1/admin/product')
+        let products=await axios.get('/api/v1/admin/product')
         products=products.data.product
         dispatch(adminProductsSuccess(products))
     }
@@ -84,7 +84,7 @@ export const adminNewProduct=form=>async(dispatch)=>{
                 "Content-type":'multipart/formdata'
             }
         }
-        let products=await axios.post('https://ecommerce123-yixk.onrender.com/api/v1/admin/product/new',form,config)
+        let products=await axios.post('/api/v1/admin/product/new',form,config)
         console.log(products)
         products=products.data.product
         dispatch(newProductSuccess(products))
@@ -102,7 +102,7 @@ export const adminProductDelete=(id)=>async(dispatch)=>{
                 "Content-type":'multipart/formdata'
             }
         }
-        let products=await axios.delete(`https://ecommerce123-yixk.onrender.com/api/v1/admin/product/${id}`)
+        let products=await axios.delete(`/api/v1/admin/product/${id}`)
         console.log(products)
         products=products.data.product
         dispatch(deleteProductSuccess(products))
@@ -121,7 +121,7 @@ export const adminProductUpdate=(id,productData)=>async(dispatch)=>{
                 "Content-type":'multipart/formdata'
             }
         }
-        let products=await axios.put(`https://ecommerce123-yixk.onrender.com/api/v1/admin/product/${id}`,productData,config)
+        let products=await axios.put(`/api/v1/admin/product/${id}`,productData,config)
         console.log(products)
         products=products.data.product
         dispatch(updateProductSuccess(products))
