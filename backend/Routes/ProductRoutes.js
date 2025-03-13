@@ -1,5 +1,4 @@
 const express=require("express")
-const { route } = require("../App")
 const {getproduct,newproduct,getsingleproduct,updateproduct,
     deleteproduct,reviews,allReviews,adminProduct}=require("../Controller/ProductController")
 const {isAuthenticatedUser,AuthorizedRole}=require('../MiddleWare/Authentication')
