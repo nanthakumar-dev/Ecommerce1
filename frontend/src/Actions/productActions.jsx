@@ -28,7 +28,7 @@ export const productActions=id=>async(dispatch)=>{
 export const productsActions=(currentPage,keyword,category)=>async(dispatch)=>{
     try{
         dispatch(productsRequest())
-    let link=`/api/v1/product?page=${currentPage}`
+    let link=`https://ecommerce123-yixk.onrender.com/api/v1/product?page=${currentPage}`
     if(keyword){
         link+=`&keyword=${keyword}`
     }
