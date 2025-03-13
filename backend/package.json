@@ -5,7 +5,7 @@
   "main": "Server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/Server.js",
+    "start": "node /Server.js",
     "dev": "set NODE_ENV=development&&node backend/Server.js",
     "prod": "set NODE_ENV=production&&nodemon backend/Server.js",
     "seeder": "node backend/Utils/seeder.js"
