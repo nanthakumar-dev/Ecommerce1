@@ -16,9 +16,7 @@ app.use(cors())
 
 app.use(cookieParser())
 app.use('/upload',express.static(path.join(__dirname,'upload')))
-app.use('/',(req,res)=>{
-res.send("Good")
-    })
+
 app.get('/bad',(req,res)=>{
 res.send("Bad")
     })
