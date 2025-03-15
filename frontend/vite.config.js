@@ -8,7 +8,7 @@ export default defineConfig({
   server:{
     proxy:{
       "/api":{
-   target:"https://ecommerce123-yixk.onrender.com"?,
+   target:"https://ecommerce123-yixk.onrender.com",
    changeOrigin:true,
    secure:false
 }
