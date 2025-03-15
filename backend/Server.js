@@ -7,7 +7,7 @@ const dotenv=require("dotenv")
 
 DatabaseConnection()
 
-const server=app.listen(process.env.PORT,()=>{
+const server=app.listen(process.env.PORT,'0.0.0.0',()=>{
     console.log(`Server start at ${process.env.PORT} in ${process.env.NODE_ENV}`);
 })
 
