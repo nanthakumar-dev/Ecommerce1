@@ -10,9 +10,10 @@ import {productRequest,productSuccess,productFail,
     updateProductRequest,updateProductSuccess,updateProductFail
 } from '../Slice/productSlice'
 import axios from 'axios'
+import api from './api'
 export const productActions=id=>async(dispatch)=>{
     try{
-        console.log("PRoductsssssssss")
+       
     dispatch(productRequest())
     let response=await fetch(`/api/v1/product/${id}`)
     response=await response.json()
@@ -35,7 +36,7 @@ export const productsActions=(currentPage,keyword,category)=>async(dispatch)=>{
     if(category){
         link+=`&category=${category}`
     }
-    let products=await axios.get(link)
+    let products=await api.get(link)
     products=products.data
     dispatch(productsSuccess(products))}
 
