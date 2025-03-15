@@ -11,6 +11,27 @@ import {productRequest,productSuccess,productFail,
 } from '../Slice/productSlice'
 import axios from 'axios'
 import api from './api'
+
+export const productsActions=(currentPage,keyword,category)=>async(dispatch)=>{
+    try{
+        dispatch(productsRequest())
+    let link=`/api/v1/product?page=${currentPage}`
+    if(keyword){
+        link+=`&keyword=${keyword}`
+    }
+    if(category){
+        link+=`&category=${category}`
+    }
+    let products=await axios.get(link)
+    products=products.data
+    dispatch(productsSuccess(products))}
+
+    catch(err){
+        console.log(err.response.data.message)
+    }
+        
+}
+
 export const productActions=id=>async(dispatch)=>{
     try{
        
@@ -26,25 +47,7 @@ export const productActions=id=>async(dispatch)=>{
 
 }
 
-export const productsActions=(currentPage,keyword,category)=>async(dispatch)=>{
-    try{
-        dispatch(productsRequest())
-    let link=`/api/v1/product?page=${currentPage}`
-    if(keyword){
-        link+=`&keyword=${keyword}`
-    }
-    if(category){
-        link+=`&category=${category}`
-    }
-    let products=await api.get(link)
-    products=products.data
-    dispatch(productsSuccess(products))}
 
-    catch(err){
-        console.log(err.response.data.message)
-    }
-        
-}
 export const createReview=form=>async(dispatch)=>{
     try{
         
