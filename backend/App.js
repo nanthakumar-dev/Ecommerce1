@@ -24,6 +24,7 @@ res.send("Bad")
 
 app.use('/api/v1',Products)
 app.use('/api/v1',order)
+app.use('/api/v1',auth)
 app.use('/api/v1',payment)
 
 if(process.env.NODE_ENV==='production'){
