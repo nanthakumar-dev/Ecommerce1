@@ -39,7 +39,7 @@ export default function Payment() {
         e.preventDefault()
         document.querySelector("#pay_btn").disabled=true
         try{
-            const {data}=await api.post("/api/v1/payment/process",{...paymentData})
+            const {data}=await axios.postst("https://ecommerce123-yixk.onrender.com/api/v1/payment/process",{...paymentData})
             const client_secret=data.client_secret
             const result=await  stripe.confirmCardPayment(client_secret,{
                 payment_method:{

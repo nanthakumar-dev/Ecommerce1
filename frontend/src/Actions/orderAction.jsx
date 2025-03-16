@@ -10,7 +10,7 @@ import {
 export const createOrder=order=>async(dispatch)=>{
     try{
         dispatch(orderRequest())
-    const {data}=await api.post("/api/v1/order/new",order)
+    const {data}=await axios.post("https://ecommerce123-yixk.onrender.com/api/v1/order/new",order)
     console.log(data)
     dispatch(orderSuccess(data.order))
 }
@@ -21,7 +21,7 @@ catch(err){
 export const userOrderAction=async(dispatch)=>{
     try{
         dispatch(userOrderRequest())
-    const {data}=await api.get("/api/v1/myorder")
+    const {data}=await axios.get("https://ecommerce123-yixk.onrender.com/api/v1/myorder")
     dispatch(userOrderSuccess(data.order))
 }
 catch(err){
@@ -32,7 +32,7 @@ catch(err){
 export const orderDetail=(id)=>async(dispatch)=>{
     try{
         dispatch(orderDetailRequest())
-        const {data}=await api.get(`/api/v1/order/${id}`)
+        const {data}=await axios.get(`https://ecommerce123-yixk.onrender.com/api/v1/order/${id}`)
         dispatch(orderDetailSuccess(data.order))
     }
     catch(err){
@@ -45,7 +45,7 @@ export const getOrder=async(dispatch)=>{
     try{
 
         dispatch(adminOrderRequest())
-        const {data}=await api.get(`/api/v1/admin/orders`)
+        const {data}=await axios.get(`https://ecommerce123-yixk.onrender.com/api/v1/admin/orders`)
         dispatch(adminOrderSuccess(data.order))
 
     }
@@ -59,7 +59,7 @@ export const deleteOrder=id=>async(dispatch)=>{
     try{
         console.log(id)
         dispatch(deleteOrderRequest())
-        await api.delete(`/api/v1/admin/order/${id}`)
+        await axios.delete(`https://ecommerce123-yixk.onrender.com/api/v1/admin/order/${id}`)
         dispatch(deleteOrderSuccess())
 
     }
@@ -73,7 +73,7 @@ export const updateOrder=(id,orderData)=>async(dispatch)=>{
     try{
        
         dispatch(updateOrderRequest())
-        const {data}=await api.put(`/api/v1/admin/order/${id}`,orderData)
+        const {data}=await api.put(`https://ecommerce123-yixk.onrender.com/api/v1/admin/order/${id}`,orderData)
         console.log(data.order)
         dispatch(updateOrderSuccess(data.order))
 

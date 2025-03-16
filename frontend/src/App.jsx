@@ -48,7 +48,7 @@ function App() {
     dispatch(loadUser())
 
     async function Key() {
-      const { data } = await axios.get('/api/v1/stripeapi')
+      const { data } = await axios.get('https://ecommerce123-yixk.onrender.com/api/v1/stripeapi')
       setApiKey(data.apiKey)
     }
     Key()
