@@ -167,7 +167,7 @@ exports.editProfile=async(req,res,net)=>{
         }
        
     if(req.file){
-        avatar=`${BASE_URL}/upload/images/${req.file.originalname}`
+        avatar=`https://ecommerce123-yixk.onrender.com/upload/images/${req.file.originalname}`
         data={...data,avatar:avatar}
     }
     if(!user){
