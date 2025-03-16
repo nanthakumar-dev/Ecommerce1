@@ -15,7 +15,7 @@ exports.registerUser=catchAsyncErr(async(req,res,next)=>{
         }
     if(req.file){
         console.log('file')
-        avatar=`${BASE_URL}/upload/images/${req.file.originalname}`
+        avatar=`https://ecommerce123-yixk.onrender.com/upload/images/${req.file.originalname}`
     }
     const user=await userModel.create({
         name,email,password,avatar,role
