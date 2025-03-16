@@ -22,7 +22,7 @@ export const productsActions=(currentPage,keyword,category)=>async(dispatch)=>{
     if(category){
         link+=`&category=${category}`
     }
-    let products=await axios.get(link)
+    let products=await api.get(link)
     products=products.data
     dispatch(productsSuccess(products))}
 
@@ -57,7 +57,7 @@ export const createReview=form=>async(dispatch)=>{
                 "Content-type":"application/json"
             }
         }
-        let products=await axios.post('/api/v1/product/review',form,condition)
+        let products=await api.post('/api/v1/product/review',form,condition)
         products=products.data
         dispatch(reviewSuccess())
     }
@@ -70,7 +70,7 @@ export const adminProducts=async(dispatch)=>{
         
         dispatch(adminProductsRequest())
         
-        let products=await axios.get('/api/v1/admin/product')
+        let products=await api.get('/api/v1/admin/product')
         products=products.data.product
         dispatch(adminProductsSuccess(products))
     }
@@ -88,7 +88,7 @@ export const adminNewProduct=form=>async(dispatch)=>{
                 "Content-type":'multipart/formdata'
             }
         }
-        let products=await axios.post('/api/v1/admin/product/new',form,config)
+        let products=await api.post('/api/v1/admin/product/new',form,config)
         console.log(products)
         products=products.data.product
         dispatch(newProductSuccess(products))
@@ -106,7 +106,7 @@ export const adminProductDelete=(id)=>async(dispatch)=>{
                 "Content-type":'multipart/formdata'
             }
         }
-        let products=await axios.delete(`/api/v1/admin/product/${id}`)
+        let products=await api.delete(`/api/v1/admin/product/${id}`)
         console.log(products)
         products=products.data.product
         dispatch(deleteProductSuccess(products))
@@ -125,7 +125,7 @@ export const adminProductUpdate=(id,productData)=>async(dispatch)=>{
                 "Content-type":'multipart/formdata'
             }
         }
-        let products=await axios.put(`/api/v1/admin/product/${id}`,productData,config)
+        let products=await api.put(`/api/v1/admin/product/${id}`,productData,config)
         console.log(products)
         products=products.data.product
         dispatch(updateProductSuccess(products))

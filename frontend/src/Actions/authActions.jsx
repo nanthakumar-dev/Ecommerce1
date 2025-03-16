@@ -12,7 +12,7 @@ export const LoginAction=(email,password)=>async(dispatch)=>{
     try{
         
         dispatch(loginRequest())
-        const {data}=await axios.post('/api/v1/login',{email,password})
+        const {data}=await api.post('/api/v1/login',{email,password})
         dispatch(loginSuccess(data))
     }
     catch(err){
@@ -23,7 +23,7 @@ export const LoginAction=(email,password)=>async(dispatch)=>{
 export const RegisterAction=(userData)=>async(dispatch)=>{
     try{
         dispatch(registerRequest())
-        const {data}=await axios.post('/api/v1/register',userData)
+        const {data}=await api.post('/api/v1/register',userData)
         dispatch(registerSuccess(data))
     }
     catch(err){
@@ -34,7 +34,7 @@ export const RegisterAction=(userData)=>async(dispatch)=>{
 export const loadUser=(userData)=>async(dispatch)=>{
     try{
         dispatch(loadUserRequest())
-        const {data}=await axios.get('/api/v1/myprofile')
+        const {data}=await api.get('/api/v1/myprofile')
         dispatch(loadUserSuccess(data))
     }
     catch(err){
@@ -45,7 +45,7 @@ export const loadUser=(userData)=>async(dispatch)=>{
 export const logoutUser=async(dispatch)=>{
     try{
         
-        await axios.post('/api/v1/logout')
+        await api.post('/api/v1/logout')
         dispatch(logoutSuccess())
     }
     catch(err){
@@ -58,7 +58,7 @@ export const updateUser=(formData)=>async(dispatch)=>{
         
         dispatch(updateUserRequest())
         
-        const user=await axios.put('/api/v1/update',formData)
+        const user=await api.put('/api/v1/update',formData)
         const users=user.data
         
         dispatch(updateUserSuccess(users))
@@ -72,7 +72,7 @@ export const updatePasswordAction=(formData)=>async(dispatch)=>{
         
         dispatch(updatePasswordRequest())
         
-        const user=await axios.put('/api/v1/password/change',formData)
+        const user=await api.put('/api/v1/password/change',formData)
         const users=user.data
     
         dispatch(updatePasswordSuccess(users))
@@ -85,7 +85,7 @@ export const forgotPasswordAction=(email)=>async(dispatch)=>{
     try{
         dispatch(forgotPasswordRequest())    
         console.log(email)
-        let user=await axios.post('/api/v1/password/forgot',email)
+        let user=await api.post('/api/v1/password/forgot',email)
         user=user.data
         console.log(user)
         
@@ -103,7 +103,7 @@ export const resetPasswordAction=(formData,token)=>async(dispatch)=>{
     try{
         dispatch(resetPasswordRequest())    
         
-        let user=await axios.post(`/api/v1/password/reset/${token}`,formData)
+        let user=await api.post(`/api/v1/password/reset/${token}`,formData)
         user=user.data
         
         dispatch(resetPasswordSuccess(user))    

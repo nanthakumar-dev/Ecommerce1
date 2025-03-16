@@ -10,7 +10,7 @@ import axios from 'axios'
 export const  usersDataAction=async(dispatch)=>{
     try{
         dispatch(usersRequest())
-        const {data}=await axios.get(`/api/v1/admin/users`)
+        const {data}=await api.get(`/api/v1/admin/users`)
 
         dispatch(usersSuccess(data.user))
     }
@@ -22,7 +22,7 @@ export const  usersDataAction=async(dispatch)=>{
 export const  userDataAction=id=>async(dispatch)=>{
     try{
         dispatch(userRequest())
-        const {data}=await axios.get(`/api/v1/admin/user/${id}`)
+        const {data}=await api.get(`/api/v1/admin/user/${id}`)
 
         dispatch(userSuccess(data.user))
     }
@@ -34,7 +34,7 @@ export const  userDataAction=id=>async(dispatch)=>{
 export const  deleteUserDataAction=id=>async(dispatch)=>{
     try{
         dispatch(deleteUserRequest())
-        const {data}=await axios.delete(`/api/v1/admin/user/${id}`)
+        const {data}=await api.delete(`/api/v1/admin/user/${id}`)
         dispatch(deleteUserSuccess())
     }
     catch(error){
@@ -46,7 +46,7 @@ export const  updateUserDataAction=(id,userData)=>async(dispatch)=>{
     try{
         dispatch(updateUserRequest())
         console.log(id,":",userData)
-        const {data}=await axios.put(`/api/v1/admin/user/${id}`,userData)
+        const {data}=await api.put(`/api/v1/admin/user/${id}`,userData)
         dispatch(updateUserSuccess())
     }
     catch(error){
