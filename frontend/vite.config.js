@@ -10,8 +10,7 @@ export default defineConfig({
       "/api":{
    target:"https://ecommerce123-yixk.onrender.com",
    changeOrigin:true,
-   secure:false,
-   rewrite: (path) => path.replace(/^\/api/, '')
+   secure:false
 }
     }
   },
