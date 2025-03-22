@@ -17,7 +17,7 @@ export default function Header(){
             <div className="col-12 col-md-3">
             <Link to='/'>
             <div className="navbar-brand">
-                <img width="150px" src="/images/logo.png" />
+                <h1>MyApp</h1>
             </div>
             </Link>
             </div>
