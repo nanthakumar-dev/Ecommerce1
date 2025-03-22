@@ -32,7 +32,7 @@ export default function Header(){
                         <Dropdown>
                             <Dropdown.Toggle variant='default text-dark ' id='basic' >
                                 <figure className="avatar avatar-nav bg-danger d-flex" >
-                                    <Image style={{"borderRadius":"50%"}}  src={user.avatar??'/images/default_avatar.png'}/>
+                                    <Image style={{"borderRadius":"50%"}}  src={user.avatar}/>
                                     
                                     
                                     <p className="text-white pr-3">{user.name}</p>
